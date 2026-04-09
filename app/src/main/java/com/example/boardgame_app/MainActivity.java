@@ -7,7 +7,14 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class MainActivity extends AppCompatActivity {
+    Button btnVote = findViewById(R.id.btnSpielevote);
+    Button btnTermine = findViewById(R.id.btnTermine);
+    Button btnVorschlag = findViewById(R.id.btnSpielvorschlaege);
+    Button btnChat = findViewById(R.id.btnChat);
+    Button btnSpieler = findViewById(R.id.btnSpielerliste);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,25 +22,25 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        Button btnSpielevote = findViewById(R.id.btnSpielevote);
-        Button btnTermine = findViewById(R.id.btnTermine);
-        Button btnSpielvorschlaege = findViewById(R.id.btnSpielvorschlaege);
-        Button btnChat = findViewById(R.id.btnChat);
-        Button btnPlayerList = findViewById(R.id.btnPlayerList);
+        btnVote.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, GameVoteActivity.class));
+        });
 
-        btnSpielevote.setOnClickListener(v ->
-                startActivity(new Intent(MainActivity.this, GameVoteActivity.class)));
+        btnTermine.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, EventActivity.class));
+        });
 
-        btnTermine.setOnClickListener(v ->
-                startActivity(new Intent(MainActivity.this, EventActivity.class)));
+        btnVorschlag.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, AddGameActivity.class));
+        });
 
-        btnSpielvorschlaege.setOnClickListener(v ->
-                startActivity(new Intent(MainActivity.this, AddGameActivity.class)));
+        btnChat.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ChatActivity.class));
+        });
 
-        btnChat.setOnClickListener(v ->
-                startActivity(new Intent(MainActivity.this, ChatActivity.class)));
+        btnSpieler.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, PlayerListActivity.class));
+        });
 
-        btnPlayerList.setOnClickListener(v ->
-                startActivity(new Intent(MainActivity.this, PlayerListActivity.class)));
     }
 }

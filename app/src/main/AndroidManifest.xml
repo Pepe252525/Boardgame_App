@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Boardgame_App">
         <activity
+            android:name=".EventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlayerListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GameVoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -2,43 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_horizontal">
+    android:padding="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Board-App"
+        android:layout_marginBottom="40dp"
+        android:text="@string/Textview_name"
         android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="40dp" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnSpielevote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Spielevote"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_Spielevote" />
 
     <Button
         android:id="@+id/btnTermine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Termine"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_Termine" />
 
     <Button
         android:id="@+id/btnSpielvorschlaege"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Spielvorschläge"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_Spielevorschläge" />
 
     <Button
         android:id="@+id/btnChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chat" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_Chat" />
+
+    <Button
+        android:id="@+id/btnSpielerliste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_Spielerliste" />
 
 </LinearLayout>

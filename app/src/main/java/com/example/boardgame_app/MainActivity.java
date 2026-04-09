@@ -9,18 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-    Button btnVote = findViewById(R.id.btnSpielevote);
-    Button btnTermine = findViewById(R.id.btnTermine);
-    Button btnVorschlag = findViewById(R.id.btnSpielvorschlaege);
-    Button btnChat = findViewById(R.id.btnChat);
-    Button btnSpieler = findViewById(R.id.btnSpielerliste);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        Button btnVote = findViewById(R.id.btnSpielevote);
+        Button btnTermine = findViewById(R.id.btnTermine);
+        Button btnVorschlag = findViewById(R.id.btnSpielvorschlaege);
+        Button btnChat = findViewById(R.id.btnChat);
+        Button btnSpieler = findViewById(R.id.btnSpielerliste);
 
         btnVote.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, GameVoteActivity.class));

@@ -1,5 +1,6 @@
 package com.example.boardgame_app;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -18,20 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnVote = findViewById(R.id.btnSpielevote);
         Button btnTermine = findViewById(R.id.btnTermine);
-        Button btnVorschlag = findViewById(R.id.btnSpielvorschlaege);
+        Button btnBewertung = findViewById(R.id.btnBewertung);
         Button btnChat = findViewById(R.id.btnChat);
         Button btnSpieler = findViewById(R.id.btnSpielerliste);
 
         btnVote.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, GameVoteActivity.class));
+            startActivity(new Intent(MainActivity.this, GameActivity.class));
         });
 
         btnTermine.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, EventActivity.class));
         });
 
-        btnVorschlag.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, AddGameActivity.class));
+        btnBewertung.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, BewertungActivity.class));
         });
 
         btnChat.setOnClickListener(v -> {

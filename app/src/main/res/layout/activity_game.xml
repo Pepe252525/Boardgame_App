@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/listViewGames"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- Abstand -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+    <!-- Eingabe für neues Spiel -->
+    <EditText
+        android:id="@+id/editGameName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/spielname_eingeben"
+        android:inputType="textPersonName"
+        android:padding="12dp" />
+
+    <!-- Button zum Erstellen -->
+    <Button
+        android:id="@+id/btnCreateGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/spiel_erstellen"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>
+

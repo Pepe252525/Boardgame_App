@@ -13,7 +13,7 @@ public class Event {
     public String getDate(){
         return date;
     }
-    public String getLOcation(){
+    public String getLocation(){
         return location;
     }
     public String getHost(){

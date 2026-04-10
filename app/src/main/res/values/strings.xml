@@ -6,4 +6,13 @@
     <string name="btn_Spielerliste">Spielerliste</string>
     <string name="btn_Chat">Chat</string>
     <string name="Textview_name">PlayersCup</string>
+
+    ---Termin Activity---
+    <string name="event_title">Termine</string>
+    <string name="next_event_label">Nächster Termin</string>
+    <string name="upcoming_events_label">Weitere Termine</string>
+    <string name="host_label">Gastgeber: %1$s</string>
+    <string name="location_label">Ort: %1$s</string>
+    <string name="placeholder_text">Wird geladen</string>
+    <string name="no_events_available">Keine Termine verfügbar</string>
 </resources>

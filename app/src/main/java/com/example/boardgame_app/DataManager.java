@@ -14,19 +14,40 @@ public class DataManager {
     private List<Message> messages;
     private List<Player> players;
     private Event currentEvent;
+    private List<Event> pastEvents;
 
     private DataManager() {
         games = new ArrayList<>();
         messages = new ArrayList<>();
         players = new ArrayList<>();
+        pastEvents = new ArrayList<>();
 
-        // Beispiel-Daten
+        // Spieler mit Locations
         players.add(new Player("Max", "Zuhause"));
         players.add(new Player("Anna", "Garage"));
         players.add(new Player("Tom", "Club"));
         players.add(new Player("Lisa", "Ferienhaus"));
 
+        // Nächster kommender Termin
         currentEvent = createNextEvent();
+
+        // Vergangene Spielabende dynamisch aus players.get(...)
+        Event event1 = new Event("05.04.2026", players.get(1).getLocation(), players.get(1).getName());
+        event1.setRating(4);
+
+        Event event2 = new Event("29.03.2026", players.get(2).getLocation(), players.get(2).getName());
+        event2.setRating(5);
+
+        Event event3 = new Event("22.03.2026", players.get(3).getLocation(), players.get(3).getName());
+        event3.setRating(3);
+
+        Event event4 = new Event("15.03.2026", players.get(0).getLocation(), players.get(0).getName());
+        event4.setRating(4);
+
+        pastEvents.add(event1);
+        pastEvents.add(event2);
+        pastEvents.add(event3);
+        pastEvents.add(event4);
     }
 
     public static DataManager getInstance() {
@@ -64,7 +85,7 @@ public class DataManager {
         currentEvent = createNextEvent();
     }
 
-    // --- Event ---
+    // --- Current Event ---
     public Event getCurrentEvent() {
         return currentEvent;
     }
@@ -73,6 +94,16 @@ public class DataManager {
         this.currentEvent = event;
     }
 
+    // --- Past Events ---
+    public List<Event> getPastEvents() {
+        return pastEvents;
+    }
+
+    public void addPastEvent(Event event) {
+        pastEvents.add(0, event);
+    }
+
+    // --- Kommende Termine ---
     public List<Event> getUpcomingEvents(int count) {
         List<Event> events = new ArrayList<>();
 

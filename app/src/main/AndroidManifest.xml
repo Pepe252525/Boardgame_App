@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Boardgame_App">
         <activity
+            android:name=".BewertungActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Bewertung"
+            android:exported="false" />
+        <activity
             android:name=".GameActivity"
             android:exported="false" />
         <activity

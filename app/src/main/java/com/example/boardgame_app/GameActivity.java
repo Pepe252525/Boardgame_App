@@ -1,45 +1,66 @@
 package com.example.boardgame_app;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class GameActivity extends AppCompatActivity implements DataManager.GameChangeListener {
 
-    ListView listViewGames;
-    Button btnAddGame;
+    private ListView listViewGames;
+    private EditText editGameName;
+    private Button btnCreateGame;
 
-    ArrayAdapter<String> adapter;
-    List<Game> gameList;
+    private List<Game> gameList;
+    private GameAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        // Views
         listViewGames = findViewById(R.id.listViewGames);
-        btnAddGame = findViewById(R.id.btnAddGame);
+        editGameName = findViewById(R.id.editGameName);
+        btnCreateGame = findViewById(R.id.btnCreateGame);
 
+        // Daten holen
         gameList = DataManager.getInstance().getGames();
 
-        updateList();
+        // Adapter initialisieren
+        adapter = new GameAdapter(this, gameList);
+        listViewGames.setAdapter(adapter);
 
-        // Öffnet AddGameActivity
-        btnAddGame.setOnClickListener(v -> {
-            startActivity(new Intent(GameActivity.this, AddGameActivity.class));
-        });
+        // Spiel erstellen
+        btnCreateGame.setOnClickListener(v -> createGame());
 
         // Voting
         listViewGames.setOnItemClickListener((parent, view, position, id) -> {
             Game game = gameList.get(position);
             game.addVote();
-            updateList();
+
+            DataManager.getInstance().notifyListeners();
         });
+    }
+
+    private void createGame() {
+        String name = editGameName.getText().toString().trim();
+
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Bitte Namen eingeben", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DataManager.getInstance().addGame(new Game(name));
+
+        editGameName.setText("");
+
+        Toast.makeText(this, "Spiel erstellt", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -54,25 +75,8 @@ public class GameActivity extends AppCompatActivity implements DataManager.GameC
         DataManager.getInstance().removeListener(this);
     }
 
-    // Wird automatisch aufgerufen bei neuen Spielen!
     @Override
     public void onGameListChanged() {
-        runOnUiThread(this::updateList);
-    }
-
-    private void updateList() {
-        List<String> displayList = new ArrayList<>();
-
-        for (Game game : gameList) {
-            displayList.add(game.getName() + " (Votes: " + game.getVotes() + ")");
-        }
-
-        adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                displayList
-        );
-
-        listViewGames.setAdapter(adapter);
+        runOnUiThread(() -> adapter.notifyDataSetChanged());
     }
 }

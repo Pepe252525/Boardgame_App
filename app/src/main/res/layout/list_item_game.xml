@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Ranking -->
+    <TextView
+        android:id="@+id/txtRank"
+        android:text="@string/Eins_Anzeige"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#555"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"/>
+
+    <!-- Content -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtGameName"
+            android:text="@string/SpielnameVoting"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtVotes"
+            android:text="@string/Votes"
+            android:textColor="#777"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:id="@+id/progressVotes"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:layout_marginTop="6dp"
+            android:max="100"/>
+    </LinearLayout>
+
+</LinearLayout>

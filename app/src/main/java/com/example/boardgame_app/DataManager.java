@@ -9,7 +9,6 @@ public class DataManager {
 
     private List<Game> games;
 
-    // Listener Interface
     public interface GameChangeListener {
         void onGameListChanged();
     }
@@ -37,20 +36,17 @@ public class DataManager {
         notifyListeners();
     }
 
-    // Listener hinzufügen
-    public void addListener(GameChangeListener listener) {
-        listeners.add(listener);
-    }
-
-    // Listener entfernen
-    public void removeListener(GameChangeListener listener) {
-        listeners.remove(listener);
-    }
-
-    private void notifyListeners() {
-        for (GameChangeListener listener : listeners) {
-            listener.onGameListChanged();
+    public void notifyListeners() {
+        for (GameChangeListener l : listeners) {
+            l.onGameListChanged();
         }
     }
-}
 
+    public void addListener(GameChangeListener l) {
+        listeners.add(l);
+    }
+
+    public void removeListener(GameChangeListener l) {
+        listeners.remove(l);
+    }
+}

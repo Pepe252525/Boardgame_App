@@ -25,4 +25,14 @@
     <string name="location_label">Ort: %1$s</string>
     <string name="placeholder_text">Wird geladen</string>
     <string name="no_events_available">Keine Termine verfügbar</string>
+
+    ---Bewertungs Activity---
+    <string name="rating_title">Bewertungen</string>
+    <string name="latest_event_label">Letzter Spielabend</string>
+    <string name="last_four_events">Letzte 4 Spielabende</string>
+    <string name="save_rating">Bewertung speichern</string>
+    <string name="current_rating_zero">Aktuelle Bewertung: 0 / 5</string>
+    <string name="current_rating_value">Aktuelle Bewertung: %1$.0f / 5</string>
+    <string name="saved_rating_value">Gespeicherte Bewertung: %1$.0f / 5</string>
+
 </resources>

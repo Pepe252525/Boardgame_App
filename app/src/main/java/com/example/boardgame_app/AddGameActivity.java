@@ -20,26 +20,18 @@ public class AddGameActivity extends AppCompatActivity {
         btnSaveGame = findViewById(R.id.btnSaveGame);
 
         btnSaveGame.setOnClickListener(v -> {
-            String gameName = editGameName.getText().toString();
+            String name = editGameName.getText().toString().trim();
 
-            if (gameName.isEmpty()) {
+            if (name.isEmpty()) {
                 Toast.makeText(this, "Bitte Namen eingeben", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Spiel erstellen
-            Game newGame = new Game(gameName);
+            DataManager.getInstance().addGame(new Game(name));
 
-            // In DataManager speichern
-            DataManager.getInstance().getGames().add(newGame);
+            Toast.makeText(this, "Gespeichert!", Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(this, "Spiel gespeichert!", Toast.LENGTH_SHORT).show();
-
-            // Eingabefeld leeren
-            editGameName.setText("");
-
-            // Optional: Activity schließen
-            finish();
+            editGameName.setText(""); // bleibt offen → mehrere Spiele möglich
         });
     }
 }

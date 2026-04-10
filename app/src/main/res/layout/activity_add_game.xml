@@ -8,15 +8,13 @@
 
     <EditText
         android:id="@+id/editGameName"
-        android:hint="@string/spielname_eingeben"
+        android:hint="@string/spielname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnSaveGame"
-        android:text="@string/speichern"
+        android:text="@string/speichern_addGame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
-
+        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -8,4 +8,6 @@
     <string name="Textview_name">PlayersCup</string>
     <string name="speichern">Speichern</string>
     <string name="spielname_eingeben">Spielname eingeben</string>
+    <string name="spielname">Spielname</string>
+    <string name="speichern_addGame">Speichern</string>
 </resources>

@@ -1,25 +1,36 @@
 package com.example.boardgame_app;
 
 public class Event {
+
     private String date;
     private String location;
     private String host;
+    private float rating;
 
-    public Event(String date,String location, String host){
+    public Event(String date, String location, String host) {
         this.date = date;
         this.location = location;
         this.host = host;
+        this.rating = 0;
     }
-    public String getDate(){
+
+    public String getDate() {
         return date;
     }
-    public String getLOcation(){
+
+    public String getLocation() {
         return location;
     }
-    public String getHost(){
+
+    public String getHost() {
         return host;
     }
-    public void setHost(String host ){
-        this.host = host;
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

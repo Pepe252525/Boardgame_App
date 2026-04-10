@@ -1,7 +1,10 @@
 package com.example.boardgame_app;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class DataManager {
 
@@ -84,5 +87,80 @@ public class DataManager {
         for (MessageChangeListener l : messageListeners) {
             l.onMessageListChanged();
         }
+    }
+
+    // --- Messages ---
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void addMessage(Message message) {
+        messages.add(message);
+    }
+
+    // --- Players ---
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void addPlayer(Player player) {
+        players.add(player);
+        currentEvent = createNextEvent();
+    }
+
+    // --- Current Event ---
+    public Event getCurrentEvent() {
+        return currentEvent;
+    }
+
+    public void setCurrentEvent(Event event) {
+        this.currentEvent = event;
+    }
+
+    // --- Past Events ---
+    public List<Event> getPastEvents() {
+        return pastEvents;
+    }
+
+    public void addPastEvent(Event event) {
+        pastEvents.add(0, event);
+    }
+
+    // --- Kommende Termine ---
+    public List<Event> getUpcomingEvents(int count) {
+        List<Event> events = new ArrayList<>();
+
+        if (players.isEmpty()) {
+            return events;
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
+
+        while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN);
+
+        for (int i = 0; i < count; i++) {
+            Player hostPlayer = players.get(i % players.size());
+            String date = formatter.format(calendar.getTime());
+
+            Event event = new Event(date, hostPlayer.getLocation(), hostPlayer.getName());
+            events.add(event);
+
+            calendar.add(Calendar.DAY_OF_MONTH, 7);
+        }
+
+        return events;
+    }
+
+    private Event createNextEvent() {
+        List<Event> events = getUpcomingEvents(1);
+        if (!events.isEmpty()) {
+            return events.get(0);
+        }
+        return null;
     }
 }

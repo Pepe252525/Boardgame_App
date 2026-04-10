@@ -2,8 +2,18 @@
     <string name="app_name">Boardgame_App</string>
     <string name="btn_Spielevote">Spielevote</string>
     <string name="btn_Termine">Termine</string>
-    <string name="btn_Spielevorschläge">Spielevorschläge</string>
+    <string name="btn_Spielevorschläge">Spielvorschläge</string>
     <string name="btn_Spielerliste">Spielerliste</string>
     <string name="btn_Chat">Chat</string>
     <string name="Textview_name">PlayersCup</string>
+    <string name="speichern">Speichern</string>
+    <string name="spielname_eingeben">Spielname eingeben</string>
+    <string name="spielname">Spielname</string>
+    <string name="speichern_addGame">Speichern</string>
+    <string name="spiel_hinzufuegen">Spiel hinzufügen</string>
+    <string name="SpielnameVoting">Spielname</string>
+    <string name="Votes">0 Votes</string>
+    <string name="Eins_Anzeige">#1</string>
+    <string name="bewertung">Bewertung</string>
+    <string name="spiel_erstellen">Spiel erstellen</string>
 </resources>

@@ -8,19 +8,16 @@ public class DataManager {
     private static DataManager instance;
 
     private List<Game> games;
-    private List<Message> messages;
-    private List<Player> players;
-    private Event currentEvent;
+
+    public interface GameChangeListener {
+        void onGameListChanged();
+    }
+
+    private List<GameChangeListener> listeners;
 
     private DataManager() {
         games = new ArrayList<>();
-        messages = new ArrayList<>();
-        players = new ArrayList<>();
-
-        // Beispiel-Daten
-        currentEvent = new Event("10.04.2026", "Dortmund", "Max");
-        players.add(new Player("Max"));
-        players.add(new Player("Anna"));
+        listeners = new ArrayList<>();
     }
 
     public static DataManager getInstance() {
@@ -30,39 +27,26 @@ public class DataManager {
         return instance;
     }
 
-    // --- Games ---
     public List<Game> getGames() {
         return games;
     }
 
     public void addGame(Game game) {
         games.add(game);
+        notifyListeners();
     }
 
-    // --- Messages ---
-    public List<Message> getMessages() {
-        return messages;
+    public void notifyListeners() {
+        for (GameChangeListener l : listeners) {
+            l.onGameListChanged();
+        }
     }
 
-    public void addMessage(Message message) {
-        messages.add(message);
+    public void addListener(GameChangeListener l) {
+        listeners.add(l);
     }
 
-    // --- Players ---
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void addPlayer(Player player) {
-        players.add(player);
-    }
-
-    // --- Event ---
-    public Event getCurrentEvent() {
-        return currentEvent;
-    }
-
-    public void setCurrentEvent(Event event) {
-        this.currentEvent = event;
+    public void removeListener(GameChangeListener l) {
+        listeners.remove(l);
     }
 }

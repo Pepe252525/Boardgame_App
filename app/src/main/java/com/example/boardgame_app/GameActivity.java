@@ -44,7 +44,7 @@ public class GameActivity extends AppCompatActivity implements DataManager.GameC
             Game game = gameList.get(position);
             game.addVote();
 
-            DataManager.getInstance().notifyListeners();
+            DataManager.getInstance().notifyGameListeners();
         });
     }
 
@@ -66,13 +66,13 @@ public class GameActivity extends AppCompatActivity implements DataManager.GameC
     @Override
     protected void onStart() {
         super.onStart();
-        DataManager.getInstance().addListener(this);
+        DataManager.getInstance().addGameListener(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        DataManager.getInstance().removeListener(this);
+        DataManager.getInstance().removeGameListener(this);
     }
 
     @Override

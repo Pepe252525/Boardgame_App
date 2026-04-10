@@ -16,4 +16,6 @@
     <string name="Eins_Anzeige">#1</string>
     <string name="bewertung">Bewertung</string>
     <string name="spiel_erstellen">Spiel erstellen</string>
+    <string name="nachricht_eingeben">Nachricht eingeben</string>
+    <string name="senden">Senden</string>
 </resources>

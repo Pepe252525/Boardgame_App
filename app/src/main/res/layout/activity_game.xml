@@ -5,15 +5,12 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ListView
         android:id="@+id/listViewGames"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="504dp"
         android:layout_weight="1" />
-    <!-- Abstand -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="12dp" />
 
     <!-- Eingabe für neues Spiel -->
     <EditText
@@ -22,7 +19,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/spielname_eingeben"
         android:inputType="textPersonName"
-        android:padding="12dp" />
+        android:padding="16dp" />
 
     <!-- Button zum Erstellen -->
     <Button
@@ -30,7 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/spiel_erstellen"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="20dp" />
+    <!-- Abstand -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
 </LinearLayout>
 

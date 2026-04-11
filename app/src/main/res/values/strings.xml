@@ -35,4 +35,13 @@
     <string name="current_rating_value">Aktuelle Bewertung: %1$.0f / 5</string>
     <string name="saved_rating_value">Gespeicherte Bewertung: %1$.0f / 5</string>
 
+    ---Spielerliste Activity---
+    <string name="player_list_title">Spielerliste</string>
+    <string name="player_name_hint">Name eingeben</string>
+    <string name="player_location_hint">Ort eingeben</string>
+    <string name="add_player_button">Spieler hinzufügen</string>
+    <string name="current_players_label">Aktuelle Spieler</string>
+    <string name="delete_player_button">Spieler löschen</string>
+    <string name="player_item_text">%1$s | Ort: %2$s</string>
+
 </resources>

@@ -101,6 +101,10 @@ public class DataManager {
     public List<Player> getPlayers() {
         return players;
     }
+    public void removePlayer(Player player) {
+        players.remove(player);
+        currentEvent = createNextEvent();
+    }
 
     public void addPlayer(Player player) {
         players.add(player);
